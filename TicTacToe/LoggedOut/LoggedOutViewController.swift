@@ -72,23 +72,6 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     }
 
     @objc private func didTapLoginButton() {
-        login(withPlayer1Name: player1Field?.text, player2Name: player2Field?.text)
-    }
-    
-    // MARK: - LoggedOutPresentableListener
-
-    func login(withPlayer1Name player1Name: String?, player2Name: String?) {
-        let player1NameWithDefault = playerName(player1Name, withDefaultName: "Player 1")
-        let player2NameWithDefault = playerName(player2Name, withDefaultName: "Player 2")
-
-        print("\(player1NameWithDefault) vs \(player2NameWithDefault)")
-    }
-
-    private func playerName(_ name: String?, withDefaultName defaultName: String) -> String {
-        if let name = name {
-            return name.isEmpty ? defaultName : name
-        } else {
-            return defaultName
-        }
+        listener?.login(withPlayer1Name: player1Field?.text, player2Name: player2Field?.text)
     }
 }

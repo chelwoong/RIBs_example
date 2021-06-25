@@ -49,6 +49,17 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>,
     // MARK: - LoggedOutPresentableListener
     
     func login(withPlayer1Name player1Name: String?, player2Name: String?) {
+        let player1NameWithDefault = playerName(player1Name, withDefaultName: "Player 1")
+        let player2NameWithDefault = playerName(player2Name, withDefaultName: "Player 2")
         
+        print(player1NameWithDefault, player2NameWithDefault)
+    }
+    
+    private func playerName(_ name: String?, withDefaultName defaultName: String) -> String {
+        if let name = name {
+            return name.isEmpty ? defaultName : name
+        } else {
+            return defaultName
+        }
     }
 }
