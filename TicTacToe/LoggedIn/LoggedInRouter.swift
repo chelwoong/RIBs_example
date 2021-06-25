@@ -8,7 +8,7 @@
 
 import RIBs
 
-protocol LoggedInInteractable: Interactable, OffGameListener {
+protocol LoggedInInteractable: Interactable, OffGameListener, TicTacToeListener {
     var router: LoggedInRouting? { get set }
     var listener: LoggedInListener? { get set }
 }
@@ -41,7 +41,19 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
             viewController.dismiss(viewController: currentChild.viewControllable)
         }
     }
+    
+    // MARK: - LoggedInRouting
 
+    func routeToTicTacToe() {
+        detachCurrentChild()
+        attachTicTacToe()
+    }
+
+    func routeToOffGame() {
+        detachCurrentChild()
+        attachOffGame()
+    }
+    
     // MARK: - Private
 
     let viewController: LoggedInViewControllable
@@ -54,5 +66,19 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
         self.currentChild = offGame
         attachChild(offGame)
         viewController.present(viewController: offGame.viewControllable)
+    }
+
+    private func attachTicTacToe() {
+        let ticTacToe = ticTacToeBuilder.build(withListener: interactor)
+        self.currentChild = ticTacToe
+        attachChild(ticTacToe)
+        viewController.present(viewController: ticTacToe.viewControllable)
+    }
+
+    private func detachCurrentChild() {
+        if let currentchild = currentChild {
+            detachChild(currentchild)
+            viewController.dismiss(viewController: currentchild.viewControllable)
+        }
     }
 }

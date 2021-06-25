@@ -10,8 +10,9 @@ import RIBs
 import RxSwift
 
 protocol LoggedInRouting: Routing {
-    func cleanupViews()
     func routeToTicTacToe()
+    func routeToOffGame()
+    func cleanupViews()
 }
 
 protocol LoggedInListener: AnyObject {
@@ -39,7 +40,15 @@ final class LoggedInInteractor: Interactor, LoggedInInteractable {
         // TODO: Pause any business logic.
     }
     
+    // MARK: - OffGameListener
+    
     func didStartGame() {
         router?.routeToTicTacToe()
+    }
+    
+    // MARK: - TicTacToeListener
+
+    func gameDidEnd() {
+        router?.routeToOffGame()
     }
 }
