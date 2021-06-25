@@ -4,7 +4,9 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'TicTacToe' do
-  pod 'RIBs', :path => '../../../'
+  pod 'RIBs', '~> 0.9' 
+  pod 'RxSwift'
+  pod 'RxRelay'
   pod 'SnapKit', '~> 4.0.0'
-  pod 'RxCocoa', '~> 5.1'
+  pod 'RxCocoa'
 end
