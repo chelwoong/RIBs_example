@@ -19,12 +19,14 @@ protocol LoggedInViewControllable: ViewControllable {
 }
 
 final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
-
+    
     init(interactor: LoggedInInteractable,
          viewController: LoggedInViewControllable,
-         offGameBuilder: OffGameBuildable) {
+         offGameBuilder: OffGameBuildable,
+         ticTacToeBuilder: TicTacToeBuildable) {
         self.viewController = viewController
         self.offGameBuilder = offGameBuilder
+        self.ticTacToeBuilder = ticTacToeBuilder
         super.init(interactor: interactor)
         interactor.router = self
     }
@@ -44,6 +46,7 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
 
     let viewController: LoggedInViewControllable
     private let offGameBuilder: OffGameBuildable
+    private let ticTacToeBuilder: TicTacToeBuildable
     private var currentChild: ViewableRouting?
 
     private func attachOffGame() {
