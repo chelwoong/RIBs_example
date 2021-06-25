@@ -11,7 +11,7 @@ import RxSwift
 
 protocol LoggedInRouting: Routing {
     func cleanupViews()
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func routeToTicTacToe()
 }
 
 protocol LoggedInListener: AnyObject {
@@ -19,7 +19,7 @@ protocol LoggedInListener: AnyObject {
 }
 
 final class LoggedInInteractor: Interactor, LoggedInInteractable {
-
+    
     weak var router: LoggedInRouting?
     weak var listener: LoggedInListener?
 
@@ -37,5 +37,9 @@ final class LoggedInInteractor: Interactor, LoggedInInteractable {
 
         router?.cleanupViews()
         // TODO: Pause any business logic.
+    }
+    
+    func didStartGame() {
+        router?.routeToTicTacToe()
     }
 }
