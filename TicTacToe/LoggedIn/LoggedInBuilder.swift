@@ -9,16 +9,17 @@
 import RIBs
 
 protocol LoggedInDependency: Dependency {
-    // TODO: Make sure to convert the variable into lower-camelcase.
     var loggedInViewController: LoggedInViewControllable { get }
-    // TODO: Declare the set of dependencies required by this RIB, but won't be
-    // created by this RIB.
 }
 
 final class LoggedInComponent: Component<LoggedInDependency> {
 
     fileprivate var loggedInViewController: LoggedInViewControllable {
         return dependency.loggedInViewController
+    }
+    
+    var mutableScoreStream: MutableScoreStream {
+        return shared { ScoreStreamImpl() }
     }
     
     let player1Name: String
@@ -50,7 +51,8 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
         let component = LoggedInComponent(dependency: dependency,
                                               player1Name: player1Name,
                                               player2Name: player2Name)
-        let interactor = LoggedInInteractor()
+        
+        let interactor = LoggedInInteractor(mutableScoreStream: component.mutableScoreStream)
         interactor.listener = listener
         
         let offGameBuilder = OffGameBuilder(dependency: component)
