@@ -16,5 +16,7 @@ protocol LoggedInDependencyOffGame: Dependency {
 }
 
 extension LoggedInComponent: OffGameDependency {
-    
+    var scoreStream: ScoreStream {
+        return mutableScoreStream
+    }
 }
