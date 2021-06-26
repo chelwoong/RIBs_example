@@ -5,8 +5,6 @@ inhibit_all_warnings!
 
 def common_pods
   pod 'RIBs', :git=> 'https://github.com/uber/RIBs', :tag => '0.9.2'
-#, :git => 'https://github.com/uber/RIBs.git', branch: 'master', submodules: true, :swift_version => '5.0'
-
   pod 'RxSwift'
   pod 'RxRelay'
   pod 'SnapKit', '~> 4.0.0'
