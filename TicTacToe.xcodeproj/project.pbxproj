@@ -28,6 +28,7 @@
 		4CF51B3D2686CF5C00015E0B /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF51B3B2686CF5C00015E0B /* TicTacToeTests.swift */; };
 		4CF51B6A2686D15400015E0B /* RootRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF51B692686D15400015E0B /* RootRouterTests.swift */; };
 		4CF51BD72686D90D00015E0B /* TicTacToeMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF51BD62686D90D00015E0B /* TicTacToeMocks.swift */; };
+		4CF51C2B2687075200015E0B /* ScoreStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF51C2A2687075200015E0B /* ScoreStream.swift */; };
 		67D49D921927B229B8182D15 /* Pods_TicTacToeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D53E6D7951140599C8B6801A /* Pods_TicTacToeTests.framework */; };
 		7EDD59501FA13579005EC8B2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EDD594F1FA13579005EC8B2 /* Default-568h@2x.png */; };
 		AEFA38604D7D1E4A08E9A7FA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -77,6 +78,7 @@
 		4CF51B852686D44D00015E0B /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF51BC22686D66800015E0B /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF51BD62686D90D00015E0B /* TicTacToeMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeMocks.swift; sourceTree = "<group>"; };
+		4CF51C2A2687075200015E0B /* ScoreStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreStream.swift; sourceTree = "<group>"; };
 		4F5D5430C610A20092456FC7 /* Pods_TicTacToe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TicTacToe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EDD594F1FA13579005EC8B2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		833B15CABE3CBE09720A0409 /* Pods-TicTacToe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicTacToe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicTacToe/Pods-TicTacToe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,9 +121,9 @@
 			children = (
 				4CF51AB22685A65200015E0B /* LoggedInBuilder.swift */,
 				4CF51AEE2686872000015E0B /* LoggedInComponent+TicTacToe.swift */,
+				4CF51AC72685FA6700015E0B /* LoggedInComponent+OffGame.swift */,
 				4CF51AB12685A65200015E0B /* LoggedInRouter.swift */,
 				4CF51AB32685A65200015E0B /* LoggedInInteractor.swift */,
-				4CF51AC72685FA6700015E0B /* LoggedInComponent+OffGame.swift */,
 			);
 			path = LoggedIn;
 			sourceTree = "<group>";
@@ -167,6 +169,14 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		4CF51C2E2687080F00015E0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4CF51C2A2687075200015E0B /* ScoreStream.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		59F943336420DE07CA779F6F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,7 @@
 			children = (
 				7EDD59511FA135E9005EC8B2 /* Resources */,
 				E9CB1D331F972FD500D84847 /* AppStart */,
+				4CF51C2E2687080F00015E0B /* Models */,
 				E9CB1D361F972FE400D84847 /* Root */,
 				4CF51AB02685A63F00015E0B /* LoggedIn */,
 				E9CB1D421F972FE400D84847 /* LoggedOut */,
@@ -471,6 +482,7 @@
 				E9CB1D521F97303800D84847 /* AppDelegate.swift in Sources */,
 				E9CB1D641F9730EF00D84847 /* RootInteractor.swift in Sources */,
 				4CF51AE72686201A00015E0B /* TicTacToeRouter.swift in Sources */,
+				4CF51C2B2687075200015E0B /* ScoreStream.swift in Sources */,
 				4CF51AC52685F7E400015E0B /* OffGameInteractor.swift in Sources */,
 				4CF51AC22685F7E400015E0B /* OffGameRouter.swift in Sources */,
 				4CF51ABA2685AAC500015E0B /* RootComponent+LoggedIn.swift in Sources */,
