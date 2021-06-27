@@ -12,11 +12,10 @@ import UIKit
 
 protocol TicTacToePresentableListener: AnyObject {
     func placeCurrentPlayerMark(atRow row: Int, col: Int)
-    func closeGame()
 }
 
 final class TicTacToeViewController: UIViewController, TicTacToePresentable, TicTacToeViewControllable {
-
+    
     weak var listener: TicTacToePresentableListener?
 
     init() {
@@ -49,7 +48,7 @@ final class TicTacToeViewController: UIViewController, TicTacToePresentable, Tic
         cell?.backgroundColor = color
     }
 
-    func announce(winner: PlayerType) {
+    func announce(winner: PlayerType, withCompletionHandler handler: @escaping () -> Void) {
         let winnerString: String = {
             switch winner {
             case .player1:
@@ -59,8 +58,8 @@ final class TicTacToeViewController: UIViewController, TicTacToePresentable, Tic
             }
         }()
         let alert = UIAlertController(title: "\(winnerString) Won!", message: nil, preferredStyle: .alert)
-        let closeAction = UIAlertAction(title: "Close Game", style: UIAlertAction.Style.default) { [weak self] _ in
-            self?.listener?.closeGame()
+        let closeAction = UIAlertAction(title: "Close Game", style: UIAlertAction.Style.default) { _ in
+            handler()
         }
         alert.addAction(closeAction)
         present(alert, animated: true, completion: nil)
